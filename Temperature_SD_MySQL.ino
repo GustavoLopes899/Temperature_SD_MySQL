@@ -1,3 +1,6 @@
+// Program used to monitor the temperature with LM35 sensor and save data on MySQL's database //
+// If the connection is not possible, save the data on SD card to future recovery //
+
 #include <SPI.h>
 #include <Ethernet.h>
 #include <SD.h>
@@ -34,7 +37,7 @@ char ch;
 IPAddress server_addr(10, 156, 10, 164);              // server ip address
 const char user[] = "root";                           // mysql user
 const char password[] = "root";                       // mysql password
-const char DATABASE[] = "USE db_freezer";         // mysql command to use a specific database
+const char DATABASE[] = "USE db_freezer";             // mysql command to use a specific database
 char sentence[TAM_L];                                 // sentence to do a insert in database 
 EthernetClient client;
 MySQL_Connection conn((Client *)&client);
